@@ -1,18 +1,26 @@
 <?php
 class PhpTemplate {
-	private $path;
+	protected $path;
+	protected $charset;
 
-	function __construct($path) {
+	public function __construct($path, $charset = 'UTF-8') {
 		$this->path = $path;
+		$this->charset = $charset;
 	}
 
-	function render($file, $data = null) {
+	public function render($file, $data = null) {
+		if ($data) {
+			extract($data);
+		}
 		ob_start();
-		include $this->path.$file;
-		$html = ob_get_contents();
-		ob_end_clean();
+		ob_implicit_flush(false);
+		require $this->path.'/'.$file;
 
-		return $html;
+		return ob_get_clean();
 	}
+
+	public function escape($string) {
+		return htmlspecialchars($string, ENT_QUOTES, $this->charset);
+	} 
 }
 ?>

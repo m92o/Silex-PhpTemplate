@@ -25,4 +25,16 @@ Registering
 
 Usage
 -----
-	echo $app->render('/index.tmpl', $data);
+	$data = array('name' => 'PHP Template');
+	echo $app->render('index.tmpl', $data);
+
+	index.tmpl
+	<html>
+	<body>
+		<p><?= $['name] ?></p>
+	</body>
+	</html>
+
+License
+-------
+New BSD license.
