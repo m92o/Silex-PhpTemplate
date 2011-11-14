@@ -26,7 +26,7 @@ Registering
 Usage
 -----
 	$data = array('name' => 'PHP Template');
-	echo $app->render('index.tmpl', $data);
+	echo $app['phptmpl']->render('index.tmpl', $data);
 
 	index.tmpl
 	<html>
