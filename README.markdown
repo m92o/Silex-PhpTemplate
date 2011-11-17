@@ -31,7 +31,7 @@ Usage
 	index.tmpl
 	<html>
 	<body>
-		<p><?= $['name] ?></p>
+		<p><?= $name ?></p>
 	</body>
 	</html>
 
